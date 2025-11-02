@@ -113,3 +113,24 @@ button, a {
 button, a {
   transition: all 0.3s ease;
 }
+
+/* Loading spinner */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Error message */
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 10px 0;
+  border: 1px solid #fcc;
+  text-align: center;
+}

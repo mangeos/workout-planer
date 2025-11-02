@@ -17,10 +17,16 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 public class UserEntity extends PanacheEntity {
 
-    @Column(nullable = false, unique = true)
+   // använd e-post som användarnamn (unik)
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    // Googles "sub" för att länka kontot (unik)
+    @Column(unique = true, nullable = false)
+    private String googleSub;
+
+    // måste vara nullable — Google-only konton har inget lokalt lösenord
+    @Column(nullable = true)
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -29,5 +35,17 @@ public class UserEntity extends PanacheEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<ProgressLog> progressLogs;
 
-    // Getters och setters
+     // 👇 LÄGG TILL: Ytterligare fält från Google
+    private String name;
+    private String email;
+    
+    // 👇 LÄGG TILL: Statisk metod för att hitta användare via googleSub
+    public static UserEntity findByGoogleSub(String googleSub) {
+        return find("googleSub", googleSub).firstResult();
+    }
+    
+    // 👇 LÄGG TILL: Statisk metod för att hitta användare via email
+    public static UserEntity findByEmail(String email) {
+        return find("email", email).firstResult();
+    }
 }

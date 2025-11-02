@@ -5,9 +5,9 @@ services:
     image: postgres:16
     container_name: workout-db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: workout_tracker
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
@@ -18,15 +18,24 @@ services:
   quarkus:
     build:
       context: .
-      dockerfile: src/main/docker/Dockerfile.jvm  # eller Dockerfile.native om du vill native
+      dockerfile: src/main/docker/Dockerfile.jvm
     container_name: workout-app
     ports:
       - "8080:8080"
     environment:
-      QUARKUS_DATASOURCE_URL: jdbc:postgresql://postgres:5432/workout_tracker
-      QUARKUS_DATASOURCE_USERNAME: postgres
-      QUARKUS_DATASOURCE_PASSWORD: secret
-      QUARKUS_HIBERNATE_ORM_DATABASE_GENERATION: update
+      # Database
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      
+      # Google OAuth
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      
+      # Quarkus
+      QUARKUS_PROFILE: ${QUARKUS_PROFILE:-dev}
+    env_file:
+      - .env  # Ladda från .env fil
     depends_on:
       - postgres
     networks:
@@ -44,6 +53,9 @@ services:
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - REACT_APP_API_URL=http://localhost:8080
+    env_file:
+      - .env  # Ladda från .env fil
     depends_on:
       - quarkus
     networks:
