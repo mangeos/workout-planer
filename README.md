@@ -1,66 +1,62 @@
-# getting-started
+# 💪 Workout Planner
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+[![Quarkus](https://img.shields.io/badge/Quarkus-2.0+-red.svg)](https://quarkus.io/)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg)](https://docker.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+En fullstack webbapplikation för att planera träning, skapa övningar och följa din träningsprogress med Google OAuth2 inloggning.
 
-## Running the application in dev mode
+## ✨ Funktioner
 
-You can run your application in dev mode that enables live coding using:
+### 🔐 Autentisering
+- **Google OAuth2** - Säker inloggning
+- **Session-based authentication** - Quarkus OAuth2 session management
+- **Automatisk sessionhantering** - Inget JWT konfiguration krävs
 
-```shell script
-./mvnw quarkus:dev
-```
+### 🏋️ Workout Management
+- Skapa, redigera och ta bort träningspass
+- Anpassningsbara workout-rutiner
+- Schemalägg träning
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+### 💪 Exercise Library
+- Bygg ditt eget bibliotek av övningar
+- Lägg till beskrivning, sets, reps och vikt
+- Kategorisera övningar efter muskelgrupp
 
-## Packaging and running the application
+### 📊 Progress Tracking
+- Visualisera din styrkeutveckling
+- Statistik per övning över tid
+- Diagram och progressionsvyer
 
-The application can be packaged using:
+## 🛠 Tech Stack
 
-```shell script
-./mvnw package
-```
+### Backend
+- **Quarkus** - Java framework
+- **PostgreSQL** - Database
+- **OAuth2** - Google authentication
+- **Session Management** - Quarkus built-in sessions
+- **Hibernate ORM** - Object-relational mapping
+- **REST API** - Web services
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+### Frontend
+- **React 18** - User interface
+- **Modern React** - Hooks & Context
+- **HTTP Client** - Fetch/Axios för API anrop
+- **Chart Library** - För statistik och diagram
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+### Infrastructure
+- **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration
 
-If you want to build an _über-jar_, execute the following command:
+## 🚀 Snabbstart med Docker
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+### Förutsättningar
+- Docker och Docker Compose
+- Google OAuth2 credentials
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/getting-started-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-
-## Provided Code
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+### 1. Klona och konfigurera
+```bash
+git clone [your-repo-url]
+cd workout-planner
