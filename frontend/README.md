@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 💪 Workout Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Quarkus](https://img.shields.io/badge/Quarkus-2.0+-red.svg)](https://quarkus.io/)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg)](https://docker.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Available Scripts
+En fullstack webbapplikation för att planera träning, skapa övningar och följa din träningsprogress med Google OAuth2 inloggning.
 
-In the project directory, you can run:
+## ✨ Funktioner
 
-### `npm start`
+### 🔐 Autentisering
+- **Google OAuth2** - Säker inloggning
+- **Session-based authentication** - Quarkus OAuth2 session management
+- **Automatisk sessionhantering** - Inget JWT konfiguration krävs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🏋️ Workout Management
+- Skapa, redigera och ta bort träningspass
+- Anpassningsbara workout-rutiner
+- Schemalägg träning
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 💪 Exercise Library
+- Bygg ditt eget bibliotek av övningar
+- Lägg till beskrivning, sets, reps och vikt
+- Kategorisera övningar efter muskelgrupp
 
-### `npm test`
+### 📊 Progress Tracking
+- Visualisera din styrkeutveckling
+- Statistik per övning över tid
+- Diagram och progressionsvyer
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Tech Stack
 
-### `npm run build`
+### Backend
+- **Quarkus** - Java framework
+- **PostgreSQL** - Database
+- **OAuth2** - Google authentication
+- **Session Management** - Quarkus built-in sessions
+- **Hibernate ORM** - Object-relational mapping
+- **REST API** - Web services
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
+- **React 18** - User interface
+- **Modern React** - Hooks & Context
+- **HTTP Client** - Fetch/Axios för API anrop
+- **Chart Library** - För statistik och diagram
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Infrastructure
+- **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Snabbstart med Docker
 
-### `npm run eject`
+### Förutsättningar
+- Docker och Docker Compose
+- Google OAuth2 credentials
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 1. Klona och konfigurera
+```bash
+git clone [your-repo-url]
+cd workout-planner
